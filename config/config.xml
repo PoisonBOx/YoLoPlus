@@ -1,0 +1,152 @@
+<?xml version="1.0"?>
+<opencv_storage>
+  <directory>
+    <workDir></workDir>
+    <trainSample></trainSample>
+    <testSample></testSample>
+  </directory>
+
+  <generalParameters>
+    <batch>64</batch>
+    <subdivisions>64</subdivisions>
+    <height>448</height>
+    <width>448</width>
+    <channels>3</channels>
+    <momentum>0.9</momentum>
+    <decay>0.0005</decay>
+    <learning_rate>0.0001</learning_rate>
+    <policy>steps</policy>
+    <steps>20 40 60 80 20000 30000</steps>
+    <scales>5 5 2 2 0.1 0.1</scales>
+    <max_batches>40000</max_batches>
+  </generalParameters>
+
+  <cropParameters>
+    <filters>16</filters>
+    <size>3</size>
+    <stride>1</stride>
+    <pad>1</pad>
+    <activation>leaky</activation>
+  </cropParameters>
+
+  <detectionParameters>
+    <class_num>20</class_num>
+    <coords>4</coords>
+    <rescore>1</rescore>
+    <side>7</side>
+    <num>2</num>
+    <softmax>0</softmax>
+    <sqrt>1</sqrt>
+    <jitter>0.2</jitter>
+    <object_scale>1</object_scale>
+    <noobject_scale>0.5</noobject_scale>
+    <class_scale>1</class_scale>
+    <coord_scale>5</coord_scale>
+  </detectionParameters>
+
+  <convNet>
+    <conv2 convName="conv0">
+      <filters>16</filters>
+      <size>3</size>
+      <stride>1</stride>
+      <pad>1</pad>
+      <activation>leaky</activation>
+    </conv2>
+    <maxpool>
+      <size>2</size>
+      <stride>2</stride>
+    </maxpool>
+    <conv2 convName="conv1">
+      <filters>32</filters>
+      <size>3</size>
+      <stride>1</stride>
+      <pad>1</pad>
+      <activation>leaky</activation>
+    </conv2>
+    <maxpool>
+      <size>2</size>
+      <stride>2</stride>
+    </maxpool>
+    <conv2 convName="conv2">
+      <filters>64</filters>
+      <size>3</size>
+      <stride>1</stride>
+      <pad>1</pad>
+      <activation>leaky</activation>
+    </conv2>
+    <maxpool>
+      <size>2</size>
+      <stride>2</stride>
+    </maxpool>
+    <conv2 convName="conv3">
+      <filters>128</filters>
+      <size>3</size>
+      <stride>1</stride>
+      <pad>1</pad>
+      <activation>leaky</activation>
+    </conv2>
+    <maxpool>
+      <size>2</size>
+      <stride>2</stride>
+    </maxpool>
+    <conv2 convName="conv4">
+      <filters>256</filters>
+      <size>3</size>
+      <stride>1</stride>
+      <pad>1</pad>
+      <activation>leaky</activation>
+    </conv2>
+    <maxpool>
+      <size>2</size>
+      <stride>2</stride>
+    </maxpool>
+    <conv2 convName="conv5">
+      <filters>512</filters>
+      <size>3</size>
+      <stride>1</stride>
+      <pad>1</pad>
+      <activation>leaky</activation>
+    </conv2>
+    <maxpool>
+      <size>2</size>
+      <stride>2</stride>
+    </maxpool>
+
+    <conv2 convName="conv6">
+      <filters>1024</filters>
+      <size>3</size>
+      <stride>1</stride>
+      <pad>1</pad>
+      <activation>leaky</activation>
+    </conv2>
+    <conv2 convName="conv7">
+      <filters>1024</filters>
+      <size>3</size>
+      <stride>1</stride>
+      <pad>1</pad>
+      <activation>leaky</activation>
+    </conv2>
+    <conv2 convName="conv8">
+      <filters>1024</filters>
+      <size>3</size>
+      <stride>1</stride>
+      <pad>1</pad>
+      <activation>leaky</activation>
+    </conv2>
+    
+    <connected>
+      <output>256</output>
+      <activation>linear</activation>
+    </connected>
+    <connected>
+      <output>4096</output>
+      <activation>leaky</activation>
+    </connected>
+    <dropout>0.5</dropout>
+    <connected>
+      <output>1470</output>
+      <activation>linear</activation>
+    </connected>
+  </convNet>
+
+</opencv_storage>
